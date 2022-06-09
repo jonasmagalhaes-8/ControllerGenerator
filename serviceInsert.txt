@@ -1,0 +1,4 @@
+	public NameModel insert(NameModel parametros) {
+		
+		return  FirstLowRepository.save(parametros);
+	}

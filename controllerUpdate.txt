@@ -1,0 +1,24 @@
+	@PutMapping("/updatebyid") 
+	public ResponseEntity<?> updateById(@RequestHeader("SelectedApi") String header, @RequestBody NameModel parametros) {
+		
+		try {
+
+			boolean parametrosInvalidos = Util.isEmpty(parametros.getId()) ||
+										  parametros.getId() < 1;
+			
+            if(parametrosInvalidos) {
+             
+            	return new ResponseEntity<Erro>(new Erro(HttpStatus.BAD_REQUEST.value(), "O campos Id e obrigatorio"), HttpStatus.BAD_REQUEST);
+             }
+            			  
+            return new ResponseEntity<NameModel>(FirstLowService.updateById(parametros), HttpStatus.OK);
+		} 
+		catch (Exception e) {
+
+			e.printStackTrace();
+			
+			String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/updatebyid";
+			
+			return new ResponseEntity<Erro>(new Erro(HttpStatus.INTERNAL_SERVER_ERROR.value(), mensagem), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
