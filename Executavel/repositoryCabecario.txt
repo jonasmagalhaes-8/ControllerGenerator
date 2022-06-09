@@ -1,0 +1,4 @@
+@Repository
+public interface NameRepository extends JpaRepository<NameModel, Tipo> {	
+	
+}

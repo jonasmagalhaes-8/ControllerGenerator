@@ -1,0 +1,6 @@
+@RestController
+@RequestMapping(value = "/Lower")
+public class NameController {
+	
+	@Autowired
+	private NameService FirstLowService;
