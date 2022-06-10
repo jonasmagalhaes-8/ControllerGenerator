@@ -1,5 +1,5 @@
 	@DeleteMapping("/deletebyid") 
-	public ResponseEntity<?> excluir(@RequestHeader("SelectedApi") String header,  @RequestParam(name = "parametros") String parametrosBase64) { 
+	public ResponseEntity<?> deleteById(@RequestHeader("SelectedApi") String header,  @RequestParam(name = "parametros") String parametrosBase64) { 
 		try {
 			
 			NameModel parametros = new Gson().fromJson(new String(Base64.getDecoder().decode(parametrosBase64)), NameModel.class);
