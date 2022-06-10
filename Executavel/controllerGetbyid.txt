@@ -20,7 +20,7 @@
 				
 				e.printStackTrace();
 				
-				String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/insert";
+				String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/getbyid";
 				
 				return new ResponseEntity<Erro>(new Erro(HttpStatus.INTERNAL_SERVER_ERROR.value(), mensagem), HttpStatus.INTERNAL_SERVER_ERROR);
 			}		
