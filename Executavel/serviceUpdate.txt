@@ -1,0 +1,8 @@
+	public NameModel updateById(NameModel parametros) {
+		
+		NameModel FirstLowModel = FirstLowRepository.findById(parametros.getId()).get();
+		
+		FirstLowModel.set...(parametros.get...());
+				
+		return FirstLowRepository.save(FirstLowModel);
+	}

@@ -1,0 +1,27 @@
+	@GetMapping("/getbyid") 
+	public ResponseEntity<?> getById(@RequestHeader("SelectedApi") String header,  @RequestParam(name = "parametros") String parametrosBase64) { 
+
+		try {
+				
+			NameModel parametros = new Gson().fromJson(new String(Base64.getDecoder().decode(parametrosBase64)), NameModel.class);
+				
+			boolean parametrosInvalidos = Util.isEmpty(parametros.getId()) || parametros.getId() < 0;
+				
+			if(parametrosInvalidos) {
+					
+				return new ResponseEntity<String>("O id nao pode ser nulo ou menor que 1", HttpStatus.BAD_REQUEST);
+			}
+	            
+	       NameModel result = FirstLowService.getById(parametros);
+				
+	       return result==null ? new ResponseEntity<String>("O id informado nao existe na base de dados", HttpStatus.NOT_FOUND) : new ResponseEntity<NameModel>(result, HttpStatus.OK);
+			}
+		catch(Exception e) {
+				
+				e.printStackTrace();
+				
+				String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/insert";
+				
+				return new ResponseEntity<Erro>(new Erro(HttpStatus.INTERNAL_SERVER_ERROR.value(), mensagem), HttpStatus.INTERNAL_SERVER_ERROR);
+			}		
+		}

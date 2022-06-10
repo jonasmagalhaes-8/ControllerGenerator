@@ -1,0 +1,23 @@
+	@PostMapping("/insert") 
+	public ResponseEntity<?> insert(@RequestHeader("SelectedApi") String header, @RequestBody NameModel parametros) {
+		
+		try {
+
+			boolean parametrosInvalidos = ;
+										  
+            if(parametrosInvalidos) {
+             
+            	return new ResponseEntity<Erro>(new Erro(HttpStatus.BAD_REQUEST.value(), "Insira aqui o erro"), HttpStatus.BAD_REQUEST);
+             }
+            			  
+            return new ResponseEntity<NameModel>(FirstLowService.insert(parametros), HttpStatus.OK);
+		} 
+		catch (Exception e) {
+
+			e.printStackTrace();
+			
+			String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/insert";
+			
+			return new ResponseEntity<Erro>(new Erro(HttpStatus.INTERNAL_SERVER_ERROR.value(), mensagem), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}

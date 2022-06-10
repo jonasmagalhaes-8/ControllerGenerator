@@ -1,0 +1,4 @@
+	public NameModel getById(NameModel parametros) {
+		
+		return FirstLowRepository.findById(parametros.getId()).get();
+	}
