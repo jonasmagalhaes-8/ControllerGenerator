@@ -42,6 +42,7 @@ namespace ControllerGenerator
             this.txtGenerated = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtApi = new System.Windows.Forms.TextBox();
+            this.cbxFind = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cb_api
@@ -183,11 +184,23 @@ namespace ControllerGenerator
             this.txtApi.TabIndex = 13;
             this.txtApi.Visible = false;
             // 
+            // cbxFind
+            // 
+            this.cbxFind.AutoSize = true;
+            this.cbxFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxFind.Location = new System.Drawing.Point(400, 100);
+            this.cbxFind.Name = "cbxFind";
+            this.cbxFind.Size = new System.Drawing.Size(54, 24);
+            this.cbxFind.TabIndex = 14;
+            this.cbxFind.Text = "find";
+            this.cbxFind.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbxFind);
             this.Controls.Add(this.txtApi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtGenerated);
@@ -223,6 +236,7 @@ namespace ControllerGenerator
         private System.Windows.Forms.RichTextBox txtGenerated;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtApi;
+        private System.Windows.Forms.CheckBox cbxFind;
     }
 }
 

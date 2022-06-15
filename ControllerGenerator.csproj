@@ -87,6 +87,9 @@
     <Content Include="controllerDelete.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="controllerFind.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="controllerGetbyid.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

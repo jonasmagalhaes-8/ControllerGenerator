@@ -58,6 +58,9 @@ namespace ControllerGenerator
                 if (cbxDelete.Checked)
                 resultado += "\n\n" + substidor(controllerName, File.ReadAllText(@"controllerDelete.txt"));
 
+                if (cbxFind.Checked)
+                resultado += "\n\n" + substidor(controllerName, File.ReadAllText(@"controllerFind.txt"));
+
                 txtGenerated.Text = resultado;
             }
             else

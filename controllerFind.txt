@@ -1,0 +1,27 @@
+	@GetMapping("/find") 
+	public ResponseEntity<?> find(@RequestHeader("SelectedApi") String header,  @RequestParam(name = "parametros") String parametrosBase64) { 
+
+		try {
+				
+			NameModel parametros = new Gson().fromJson(new String(Base64.getDecoder().decode(parametrosBase64)), NameModel.class);
+				
+			boolean parametrosInvalidos = ;
+				
+			if(parametrosInvalidos) {
+					
+				return new ResponseEntity<String>("Descreva o erro", HttpStatus.BAD_REQUEST);
+			}
+	            
+	       List<NameModel> result = FirstLowService.find(parametros);
+				
+	       return result.isEmpty() ? new ResponseEntity<String>("Nao existem resultados para essa pesquisa", HttpStatus.NOT_FOUND) : new ResponseEntity<List <NameModel>>(result, HttpStatus.OK);
+		}
+		catch(Exception e) {
+				
+				e.printStackTrace();
+				
+				String mensagem = e.getMessage() != null ? e.getMessage() : "Falha no endpoint Lower/find";
+				
+				return new ResponseEntity<Erro>(new Erro(HttpStatus.INTERNAL_SERVER_ERROR.value(), mensagem), HttpStatus.INTERNAL_SERVER_ERROR);
+			}		
+		}
